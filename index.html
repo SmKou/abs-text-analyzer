@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Absolute Text Analyzer</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/utilities.js"></script>
+    <script src="js/analyzer.js"></script>
+    <script src="js/translator.js"></script>
+    <script src="js/scripts.js"></script>
+    <script src="js/tests.js"></script>
+</head>
+
+<body>
+    <main>
+        <h1>Text Analyzer</h1>
+        <form method="POST">
+            <div>
+                <label for="lang-en">
+                    <input type="radio" name="language" id="lang-en" value="lang-en">
+                    English
+                </label>
+                <label for="lang-pig">
+                    <input type="radio" name="language" id="lang-pig" value="lang-pig">
+                    Pig Latin
+                </label>
+            </div>
+            <div>
+                <p>Input a text passage to get a total word count:</p>
+                <textarea id="text-passage" name="text-passage"></textarea>
+                <p><strong>Optional</strong></p>
+                <p>Words or profanities to be removed from passage:</p>
+                <input type="text" id="filter" name="filter">
+                <p>Enter a word to count the number of times it occurs in the passage:</p>
+                <input type="text" id="search-word" name="search-word">
+                <p>Enter a phrase, word, or part of a word to be bolded in the passage:</p>
+                <input type="text" id="search-bold" name="search-bold">
+                <br>
+                <input class="button" type="submit" value="Submit Survey">
+            </div>
+        </form>
+        <footer>
+            <input type="radio" name="setting" id="set-analyzer" value="set-analyzer" checked>
+            <label for="set-analyzer">Analyze text</label>
+            <input type="radio" name="setting" id="set-translator" value="set-translator">
+            <label for="set-translator">Translate text</label>
+            <div class="analysis">
+                <p>Total sentence count: <span id="total-sentence"></span></p>
+                <p>Total word count: <span id="total-word"></span></p>
+                <br>
+                <ul id="total-occurrences"></ul>
+                <p>Selected word count: <span id="total-selected"></span></p>
+            </div>
+            <p><strong>Passage</strong></p>
+            <div id="passage"></div>
+        </footer>
+        
+    </main>
+</body>
+
+</html>
