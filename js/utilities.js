@@ -43,6 +43,6 @@ function constructOccurrencesList(wordOcc) {
 function constructPassageWBold(bold, text) {
     if (isEmpty(text))
         return null;
-    const regex = new RegExp(bold, "i");
-    return `<p>${text.replace(bold, `<strong>${bold}</strong>`)}</p>`;
+    const nonBold = text.split(bold);
+    return '<p>' + nonBold.join('<strong>' + bold + '</strong>') + '</p>';
 }

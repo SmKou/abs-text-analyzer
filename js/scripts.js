@@ -43,7 +43,6 @@ const loadApplication = () => {
     }
 
     const handleFormSubmission = () => {
-        
     }
 
     form.addEventListener('submit', handleFormSubmission);

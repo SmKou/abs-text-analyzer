@@ -1,4 +1,4 @@
-function runTests(functionName) {
+function runTests(functionName="") {
     const tests = {
         // Utilities
         "isEmpty": {
@@ -105,7 +105,52 @@ function runTests(functionName) {
                     passage: ""
                 },
                 expected: "",
-                result: () => constructPassageWBold()
+                result: () => constructPassageWBold(this.input.bold, this.input.passage)
+            },
+            "2": {
+                test: "If bold is empty, return the passage with p tags.",
+                input: {
+                    bold: "",
+                    passage: "one"
+                },
+                expected: "<p>one</p>",
+                result: () => constructPassageWBold(this.input.bold, this.input.passage)
+            },
+            "3": {
+                test: "If a passage does not contain any instance of bold, return the passage with p tags.",
+                input: {
+                    bold: "two",
+                    passage: "one"
+                },
+                expected: "<p>one</p>",
+                result: () => constructPassageWBold(this.input.bold, this.input.pronunciation)
+            },
+            "4": {
+                test: "If a passage contains an instance of a bold, return the passage with p tags and the bold in strong tags.",
+                input: {
+                    bold: "two",
+                    passage: "one two"
+                },
+                expected: "<p>one <strong>two</strong></p>",
+                result: () => constructPassageWBold(this.input.bold, this.input.passage)
+            },
+            "5": {
+                test: "If a passage contains an instance of a bold that is part of a word, return the passage with p tags and the bold part in strong tags.",
+                input: {
+                    bold: "two",
+                    passage: "onetwo"
+                },
+                expected: "<p>one<strong>two</strong></p>",
+                result: () => constructPassageWBold(this.input.bold, this.input.passage)
+            },
+            "6": {
+                test: "If a passage contains two instances of bold, return the passage with p tags and two bold in strong tags.",
+                input: {
+                    bold: "two",
+                    passage: "one two threetwo"
+                },
+                expected: "<p>one <strong>two</strong> three<strong>two</strong></p>",
+                result: () => constructPassageWBold(this.input.bold, this.input.passage)
             }
         },
         // Analyzer
@@ -326,10 +371,56 @@ function runTests(functionName) {
         },
 
         // Translator
-        "translateToEnglish": {},
-        "translateFrEnglish": {},
-        "translateToPigLatin": {},
-        "translateFrPigLatin": {}
+        "translateToPigLatin": {
+            "1": {
+                test: "If a passage is empty, return the passage.",
+                input: {
+                    passage: ""
+                },
+                expected: "",
+                result: () => translateToPigLatin(this.input.passage)
+            },
+            "2": {
+                test: "If a passage has one word starting with a vowel, add way to the end of the word.",
+                input: {
+                    passage: "one"
+                },
+                expected: "oneway",
+                result: () => translateToPigLatin(this.input.passage)
+            },
+            "3": {
+                test: "If a passage has one word starting with a consonant not q, move consonant to the end and add ay.",
+                input: {
+                    passage: "two"
+                },
+                expected: "wotay",
+                result: () => translateToPigLatin(this.input.passage)
+            },
+            "4": {
+                test: "If a passage has one word starting with qu, move qu to the end and add ay.",
+                input: {
+                    passage: "que"
+                },
+                expected: "equay",
+                result: () => translateToPigLatin(this.input.passage)
+            },
+            "5": {
+                test: "If a passage has one word that starts with more than one consonant, move the consonants to the end and add ay.",
+                input: {
+                    passage: "squaw",
+                },
+                expected: "awsquay",
+                result: () => translateToPigLatin(this.input.passage)
+            },
+            "6": {
+                test: "If a passage has two words, one starting with a consonant and one with a vowel, the one starting with a consonant moves the consonant to the end and adds ay, and the other adds way to the end.",
+                input: {
+                    passage: "one two"
+                },
+                expected: "oneway wotay",
+                result: () => translateToPigLatin(this.input.passage)
+            }
+        }
     }
 
     const compareVal = (expected, returned) => {
@@ -353,7 +444,7 @@ function runTests(functionName) {
         return status;
     }
 
-    Object.keys(tests[functionName]).forEach((key) => {
+    const execute = (functionName) => Object.keys(tests[functionName]).forEach((key) => {
         console.log(
             `Test ${key}: ${tests[functionName][key].test}\n`,
             (compareVal(
@@ -364,4 +455,9 @@ function runTests(functionName) {
                 'failure'
         )
     })
+
+    if (!functionName)
+        Object.keys(tests).forEach((key) => execute(key))
+    else
+        execute(functionName)
 }
