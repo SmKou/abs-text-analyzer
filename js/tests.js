@@ -479,7 +479,7 @@ const tests = {
 const functions = {
     "isEmpty": "ie",
     "filterPassage": "fp",
-    "constructOccurrencesList": "ocl",
+    "constructOccurrencesList": "col",
     "constructPassage": "cp",
     "countCharacters": "cc",
     "countWords": "cw",
@@ -504,10 +504,16 @@ function runTests(funcName, testsList = true) {
         else
             Object.keys(tests).forEach(fn => runFuncTest(fn))
     else {
+        
         let fn = '';
         for (const [func, short] of Object.entries(functions))
             if (func === funcName || short === funcName)
                 fn = func;
+        if (!fn) {
+            console.log(funcName + 'does not exist');
+            return;
+        }
+
         if (testsList)
             describeFuncTest(fn)
         else

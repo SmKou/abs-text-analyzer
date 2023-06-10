@@ -6,12 +6,15 @@ filterPassage               T: 5
 1.  expected: three three three
     result: three three one two three
 Status: FIXED
+Error: 'g' tag forgotten on regex
 
 constructOccurrencesList    T: 2-3
 2.  expected: <li>one: 1</li>
     result: undefined
 3.  expected: <li>one: 1</li><li>two: 2</li>
     result: undefined
+Status: FIXED
+Error: incorrect shortcode in functions object
 
 constructPassage            T: 1-2
 1.  expected: 

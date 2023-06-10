@@ -24,15 +24,17 @@ function filterPassage(filter, text) {
 /**
  * Create a string for inner html of list
  * List occurrences of each word in a passage
- * @param {Object} wordOcc
+ * @param {Object} occurrences
  * @returns {String}
  */
-function constructOccurrencesList(wordOcc) {
-    if (!wordOcc || Object.keys(wordOcc).length === 0)
+function constructOccurrencesList(occurrences) {
+    if (!occurrences || Object.keys(occurrences).length === 0)
         return null;
-    return Object.keys(wordOcc).reduce((acc, key) => {
-        acc += `<li>${key}: ${wordOcc[key]}</li>`
-    }, "");
+    let list = '';
+    for (const [word, n] of Object.entries(occurrences)) {
+        list += `<li>${word}: ${n}</li>`
+    }
+    return list;
 }
 
 /**
