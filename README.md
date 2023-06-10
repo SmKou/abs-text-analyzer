@@ -56,6 +56,16 @@ Demo: [Github Pages](https://smkou.github.io/abs-text-analyzer/)
 
 ## Known Bugs
 
+- filterPassage does not filter more than one word passages
+- constructOccurrencesList does not create list inner html
+- constructPassage does not return if bold is empty
+- countCharacters always returns undefined
+- countOccurrencesOfWord returns +n when n should be 0
+- Potential testing error: object comparison on countOccurrences
+- constructPigLatin incorrectly arranges consonant-first words
+- translateToPigLatin adds elements and places out of order
+
+
 Please report any issues in viewing the site.
 
 File containing test cases: js/tests.js
