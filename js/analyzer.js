@@ -51,17 +51,23 @@ function countOccurrencesOfWord(word, text) {
 /**
  * Determine number of occurrences for each word in a text passage
  * @param {String} text 
- * @returns {Object} word: no of instances
+ * @returns {Object} words: no of instances
  */
 function countOccurrences(text) {
     if (!text || !text.length)
         return {};
-    const words = {};
-    text.match(/[A-Za-z0-9]+/g).forEach((word) => 
-        words[word] = (words[word] !== undefined) ?
-            words[word] + 1 :
-            1
-    )
-    return words;
+    const occ = {};
+    const words = text.match(/[A-Za-z0-9]+/g);
+    if (words.length === 1)
+        occ[words[0]] = 1;
+    else {
+        words.forEach((word) => {
+            if (occ[word] !== undefined)
+                occ[word]++;
+            else
+                occ[word] = 1
+        })
+    }
+    return occ;
 }
 
