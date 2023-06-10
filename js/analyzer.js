@@ -4,7 +4,7 @@
  * @param {String} text 
  * @returns {Number} no of characters
  */
-function characterCounter(text) {
+function countCharacters(text) {
     if (isEmpty(text))
         return 0;
     return text.match(/\S/g).join('').length;
@@ -15,10 +15,11 @@ function characterCounter(text) {
  * @param {String} text 
  * @returns {Number} no of words
  */
-function wordCounter(text) {
+function countWords(text) {
     if (isEmpty(text))
         return 0;
-    return text.match(/[A-Za-z0-9]+/g).length;
+    const n = text.match(/[A-Za-z0-9]+/g);
+    return (n)? n.length: 0;
 }
 
 /**
@@ -26,7 +27,7 @@ function wordCounter(text) {
  * @param {String} text 
  * @returns {Number} no of sentences
  */
-function sentenceCounter(text) {
+function countSentences(text) {
     if (isEmpty(text))
         return 0;
     const textArray = text.split(/[.!?]+/g);
@@ -41,9 +42,10 @@ function sentenceCounter(text) {
  * @param {String} text 
  * @returns {Number} no of occurrences in text
  */
-function numOfOccurrences(word, text) {
+function countOccurrencesOfWord(word, text) {
     const regex = new RegExp(word, 'gi');
-    return text.match(regex).length;
+    const n = text.match(regex);
+    return (n)? n.length: 0;
 }
 
 /**
@@ -51,7 +53,9 @@ function numOfOccurrences(word, text) {
  * @param {String} text 
  * @returns {Object} word: no of instances
  */
-function occurrencesOfWords(text) {
+function countOccurrences(text) {
+    if (!text || !text.length)
+        return {};
     const words = {};
     text.match(/[A-Za-z0-9]+/g).forEach((word) => 
         words[word] = (words[word] !== undefined) ?

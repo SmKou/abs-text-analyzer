@@ -8,7 +8,7 @@
  * - send data to component
  * - display component with results
  */
-const loadApplication = () => {
+function loadApplication() {
     const textData = {
         passage: {
             origin: "",

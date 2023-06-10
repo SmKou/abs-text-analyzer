@@ -28,7 +28,7 @@ function filterPassage(filter, text) {
 function constructOccurrencesList(wordOcc) {
     if (!wordOcc || Object.keys(wordOcc).length === 0)
         return null;
-    return Object.keys().reduce((acc, key) => {
+    return Object.keys(wordOcc).reduce((acc, key) => {
         acc += `<li>${key}: ${wordOcc[key]}</li>`
     }, "");
 }
@@ -40,7 +40,7 @@ function constructOccurrencesList(wordOcc) {
  * @param {String} text 
  * @returns {String} 
  */
-function constructPassageWBold(bold, text) {
+function constructPassage(bold, text) {
     if (isEmpty(text))
         return null;
     const nonBold = text.split(bold);
