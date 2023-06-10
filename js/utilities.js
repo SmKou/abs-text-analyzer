@@ -15,8 +15,10 @@ function isEmpty(str) {
  * @returns {String} text without profanities
  */
 function filterPassage(filter, text) {
-    const regex = new RegExp(filter.join('|'), "i")
-    return text.replace(regex, '').replace(/[ ]{2,}/, ' ');
+    const regex = new RegExp(filter.join('|'), "gi");
+    return text
+        .replace(regex, '')
+        .replace(/[ ]{2,}/g, ' ');
 }
 
 /**

@@ -1,9 +1,11 @@
 ### Jun 10
 
 **Run 1: Failed Tests**
+
 filterPassage               T: 5
 1.  expected: three three three
     result: three three one two three
+Status: FIXED
 
 constructOccurrencesList    T: 2-3
 2.  expected: <li>one: 1</li>
