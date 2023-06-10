@@ -46,7 +46,9 @@ function constructOccurrencesList(occurrences) {
  */
 function constructPassage(bold, text) {
     if (isEmpty(text))
-        return null;
+        return text;
+    if (isEmpty(bold))
+        return '<p>' + text + '</p>';
     const nonBold = text.split(bold);
     return '<p>' + nonBold.join('<strong>' + bold + '</strong>') + '</p>';
 }

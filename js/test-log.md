@@ -21,6 +21,8 @@ constructPassage            T: 1-2
     result: null
 2.  expected: <p>one</p>
     result: <p>o<strong></strong>n<strong></strong>e</p>
+Status: FIXED
+Error: Bold not checked if empty and needed to return passage with p tags
 
 countCharacters             T: 1-4
 1.  expected: 0
