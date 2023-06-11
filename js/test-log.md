@@ -33,6 +33,10 @@ countCharacters             T: 1-4
     result: undefined
 4.  expected: 2
     result: undefined
+Status: FIXED - 6.11
+Error:
+1.  Use of join on character array
+2.  Testcases had no return in result.exec()
 
 countOccurrencesOfWord      T: 1-2
 1.  expected: 0

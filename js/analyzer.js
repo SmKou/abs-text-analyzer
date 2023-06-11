@@ -7,7 +7,8 @@
 function countCharacters(text) {
     if (isEmpty(text))
         return 0;
-    return text.match(/\S/g).join('').length;
+    const noSpaces = text.match(/\S/g);
+    return noSpaces.length;
 }
 
 /**

@@ -160,7 +160,7 @@ const tests = {
             expected: 0,
             result: {
                 parent: null,
-                exec: function () { countCharacters(this.parent.input.passage) }
+                exec: function () { return countCharacters(this.parent.input.passage) }
             }
         },
         "2": {
@@ -169,7 +169,7 @@ const tests = {
             expected: 0,
             result: {
                 parent: null,
-                exec: function () { countCharacters(this.parent.input.passage) }
+                exec: function () { return countCharacters(this.parent.input.passage) }
             }
         },
         "3": {
@@ -178,7 +178,7 @@ const tests = {
             expected: 1,
             result: {
                 parent: null,
-                exec: function () { countCharacters(this.parent.input.passage) }
+                exec: function () { return countCharacters(this.parent.input.passage) }
             }
         },
         "4": {
@@ -187,7 +187,7 @@ const tests = {
             expected: 2,
             result: {
                 parent: null,
-                exec: function () { countCharacters(this.parent.input.passage) }
+                exec: function () { return countCharacters(this.parent.input.passage) }
             }
         }
     },
@@ -504,7 +504,7 @@ function runTests(funcName, testsList = true) {
         else
             Object.keys(tests).forEach(fn => runFuncTest(fn))
     else {
-        
+
         let fn = '';
         for (const [func, short] of Object.entries(functions))
             if (func === funcName || short === funcName)

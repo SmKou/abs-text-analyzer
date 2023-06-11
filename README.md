@@ -56,7 +56,6 @@ Demo: [Github Pages](https://smkou.github.io/abs-text-analyzer/)
 
 ## Known Bugs
 
-- constructPassage does not return if bold is empty
 - countCharacters always returns undefined
 - countOccurrencesOfWord returns +n when n should be 0
 - Potential testing error: object comparison on countOccurrences
