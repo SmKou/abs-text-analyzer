@@ -55,6 +55,8 @@ countOccurrences            T(u): 1-4
     result: [object Object]
 4.  expected: [object Object]
     result: [object Object]
+Status: FIXED - 6.11
+Error: Testing functions lacked formatting
 
 constructPigLatin           T: 3
 3.  expected: wotay

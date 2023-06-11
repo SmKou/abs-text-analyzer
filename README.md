@@ -56,7 +56,6 @@ Demo: [Github Pages](https://smkou.github.io/abs-text-analyzer/)
 
 ## Known Bugs
 
-- Potential testing error: object comparison on countOccurrences
 - constructPigLatin incorrectly arranges consonant-first words
 - translateToPigLatin adds elements and places out of order
 

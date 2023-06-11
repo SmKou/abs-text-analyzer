@@ -532,8 +532,8 @@ function runFuncTest(funcName) {
         const test = tests[funcName][testCase];
         const outcome = test.result.exec();
         console.log(`${funcName} Test ${testCase}
-        expected: ${test.expected}
-        result: ${outcome}`)
+        expected: ${formatReturn(test.expected)}
+        result: ${formatReturn(outcome)}`);
     })
 }
 
@@ -543,28 +543,37 @@ function describeFuncTest(funcName) {
         const testObj = tests[funcName][testCase];
         console.log('Test ' + testCase, testObj.test);
         const iptName = Object.keys(testObj.input);
-        const ipt = iptName.reduce((acc, val) => {
-            const iptVal = testObj.input[val];
-            if (iptVal
-                && typeof iptVal !== 'boolean')
-                acc += `\n\tconst ${val} = ${iptVal};`;
-            else
-                switch (typeof iptVal) {
-                    case 'boolean':
-                        if (iptVal)
-                            acc += `\n\tconst ${val} = true;`
-                        else
-                            acc += `\n\tconst ${val} = false;`
-                        break;
-                    case 'string':
-                        acc += `\n\tconst ${val} = "";`;
-                        break;
-                    case 'number':
-                        acc += `\n\tconst ${val} = 0;`
-                }
+        const ipt = iptName.reduce((acc, val, i) => {
+            if (i !== 0)
+                acc += '\n\t';
+            acc += `const ${val} = ${formatReturn(testObj.input[val]) }` 
 
         }, "");
         console.log('Code: ', `${ipt}\n\t${funcName}(${iptName.join(', ')})`);
         console.log('Expected output: ', testObj.expected);
     })
+}
+
+function formatReturn(data) {
+    let dataStr = '';
+    switch (typeof data) {
+        case 'boolean':
+            dataStr = (data) ? 'true' : 'false';
+            break;
+        case 'string':
+            dataStr = (data) ? data : '\"\"';
+            break;
+        case 'object':
+            if (Array.isArray(data))
+                dataStr = (data.length) ? data.toString() : 'undefined';
+            else
+                dataStr = (Object.keys(data).length) ? JSON.stringify(data) : 'undefined'
+            break;
+        case 'number':
+            dataStr = (data) ? data.toString() : '0';
+            break;
+        default:
+            dataStr = data + '';
+    }
+    return dataStr;
 }
