@@ -61,6 +61,10 @@ Error: Testing functions lacked formatting
 constructPigLatin           T: 3
 3.  expected: wotay
     result: otway
+Status: FIXED - 6.11
+Error: Test written with wrong expected value
+
+    Note: Found with use of 'here' to test
 
 translateToPigLatin         T: 2-4
 2.  expected: oneway wotay

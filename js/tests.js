@@ -402,7 +402,7 @@ const tests = {
         "3": {
             test: "If a word starts with a consonant not q, move consonant to the end and add ay.",
             input: { word: "two" },
-            expected: "wotay",
+            expected: "otway",
             result: {
                 parent: null,
                 exec: function () { return constructPigLatinWord(this.parent.input.word) }

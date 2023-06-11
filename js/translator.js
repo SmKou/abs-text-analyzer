@@ -42,13 +42,13 @@ function translateToPigLatin(text) {
 function constructPigLatinWord(word) {
     if (!word || !word.length)
         return '';
-    
-    if (/[^aeiou]/i.test(word.charAt(0))) {
-        const regex = new RegExp(/[^aeiou]/, "i")
+    const regex = new RegExp(/[^aeiou]/, "i");
+    if (regex.test(word.charAt(0))) {
         let i = 0;
         while (regex.test(word.charAt(i)))
             i++;
-        if (word.charAt(i - 1) === 'q' && word.charAt(i) === 'u')
+        if (word.charAt(i - 1) === 'q'
+            && word.charAt(i) === 'u')
             i++;
         return word.substring(i) + word.substring(0, i).toLowerCase() + 'ay';
     }
