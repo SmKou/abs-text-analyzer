@@ -44,6 +44,8 @@ function countSentences(text) {
  * @returns {Number} no of occurrences in text
  */
 function countOccurrencesOfWord(word, text) {
+    if (!text.length || !word.length)
+        return 0;
     const regex = new RegExp(word, 'gi');
     const n = text.match(regex);
     return (n)? n.length: 0;

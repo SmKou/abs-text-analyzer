@@ -56,8 +56,6 @@ Demo: [Github Pages](https://smkou.github.io/abs-text-analyzer/)
 
 ## Known Bugs
 
-- countCharacters always returns undefined
-- countOccurrencesOfWord returns +n when n should be 0
 - Potential testing error: object comparison on countOccurrences
 - constructPigLatin incorrectly arranges consonant-first words
 - translateToPigLatin adds elements and places out of order

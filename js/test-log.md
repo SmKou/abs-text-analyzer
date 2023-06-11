@@ -43,6 +43,8 @@ countOccurrencesOfWord      T: 1-2
     result: 1
 2.  expected: 0
     result: 4
+Status: FIXED - 6.11
+Error: Did not test word or text length
 
 countOccurrences            T(u): 1-4
 1.  expected: [object Object]
