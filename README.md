@@ -58,6 +58,7 @@ Demo: [Github Pages](https://smkou.github.io/abs-text-analyzer/)
 ## Known Bugs
 
 - Use of inner html inefficient
+- UI logic
 
 Please report any issues in viewing the site.
 
