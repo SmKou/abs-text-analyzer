@@ -1,17 +1,17 @@
-const form = document.querySelector('form');
-const footer = document.querySelector('footer');
-
-const handleFormSubmission = (e) => {
+function handleFormSubmission(e) {
     e.preventDefault();
-    data = new FormData(form);
-    footer.classList.remove('hidden');
+    const data = new FormData(form);
+    const passage = filterPassage(data.get('filter'), data.get('text-passage'));
 
-    const text = filterPassage()
 }
 
-form.addEventListener('submit', handleFormSubmission);
-form.addEventListener('reset', () => {
-    form.reset();
-    passage.classList.add('hidden');
-    analysis.classList.add('hidden');
-})
+function handleFormReset() {
+
+}
+
+const form = document.querySelector('form');
+
+form.addEventListener('submit', handleFormSubmission)
+form.addEventListener('reset', handleFormReset);
+
+const footer = document.querySelector('footer')

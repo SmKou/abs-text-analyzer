@@ -2,7 +2,7 @@
 
 By: [Stella Marie](http://smkou.com)
 
-Basic portfolio site built mostly with html and css.
+App for analyzing and optionally translating a passage to pig latin.
 
 View on [Github Pages](https://smkou.github.io/abs-text-analyzer/)
 
@@ -11,10 +11,11 @@ View on [Github Pages](https://smkou.github.io/abs-text-analyzer/)
 - HTML5
 - CSS3
 - Skeleton 2.0.4 by Dave Gamache
+- Vanilla JavaScript
 
 ## Description
 
-This portfolio site was based on the formatting of resumes and consists of two pages: the homepage and the about. It could have been a single page, which would require a reworking of the navigation, but content for this portfolio was split between personal and impersonal information. The homepage provides the impersonal, consisting of a projects gallery, education, experience, and a personal statement on reasons for taking a programming class, or rather training. In contrast, the about provides the personal, consisting of interests, hobbies, skills and contact details.
+The Absolute Text Analyzer takes a passage and optionally takes input to either analyze or translate the passage, remove word or profanities, specify a word to count the instances of, or to bold a root, word or phrase. Once at least a passage has been submitted, buttons appear beneath the form for navigating the functionality.
 
 ## Setup
 

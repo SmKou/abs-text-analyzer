@@ -22,15 +22,14 @@
                     <label for="set-analyzer">Analyze text</label>
                     <input type="radio" name="setting" value="translator">
                     <label for="set-translator">Translate text</label>
-                    <div class="optional">
-                        <p class="opt"><strong>Optional</strong></p>
-                        <p>Words or profanities to be removed from passage:</p>
-                        <input type="text" id="filter" name="filter" value="">
-                        <p>Enter a word to count the number of times it occurs in the passage:</p>
-                        <input type="text" id="search-word" name="search-word" value="">
-                        <p>Enter a phrase, word, or part of a word to be bolded in the passage:</p>
-                        <input type="text" id="search-bold" name="search-bold" value="">
-                    </div>
+                </div>
+                <div class="optional">
+                    <p>Words or profanities to be removed from passage:</p>
+                    <input type="text" id="filter" name="filter" value="">
+                    <p>Enter a word to count the number of times it occurs in the passage:</p>
+                    <input type="text" id="search-word" name="search-word" value="">
+                    <p>Enter a phrase, word, or part of a word to be bolded in the passage:</p>
+                    <input type="text" id="search-bold" name="search-bold" value="">
                 </div>
                 <br>
                 <input class="button" type="submit" value="Submit Survey">
@@ -38,17 +37,14 @@
             </div>
         </form>
         <footer class="hidden">
-            <div class="passage">
-                <p><strong>Passage</strong></p>
-                <div id="passage"></div>
-            </div>
-            <div class="analysis hidden">
-                <p>Total sentence count: <span class="sentence"></span></p>
-                <p>Total word count: <span class="word"></span></p>
-                <p>Total character count: <span class="character"></span></p>
-                <p>Selected word count: <span class="selected"></span></p>
-                <br>
-                <ul class="occurrences"></ul>
+            <div>
+                <input type="radio" name="display" id="controller-1">
+                <label for="controller-1">Passage</label>
+                <input type="radio" name="display" id="controller-2">
+                <label for="controller-2">Counts</label>
+                <input type="radio" name="display" id="controller-3">
+                <label for="controller-3">Occurrences</label>
+                <div class="display"></div>
             </div>
         </footer>
     </main>

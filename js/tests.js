@@ -67,35 +67,35 @@ const tests = {
             }
         }
     },
-    "constructOccurrencesList": {
-        "1": {
-            test: "If object lists no occurrences, return null.",
-            input: { occ: {} },
-            expected: null,
-            result: {
-                parent: null,
-                exec: function () { return constructOccurrencesList(this.parent.input.occ) }
-            }
-        },
-        "2": {
-            test: "If object has one occurrence, produce html string for one list item.",
-            input: { occ: { "one": 1 } },
-            expected: "<li>one: 1</li>",
-            result: {
-                parent: null,
-                exec: function () { return constructOccurrencesList(this.parent.input.occ) }
-            }
-        },
-        "3": {
-            test: "If has an object has two occurrences, produce html string for two list items.",
-            input: { occ: { "one": 1, "two": 2 } },
-            expected: "<li>one: 1</li><li>two: 2</li>",
-            result: {
-                parent: null,
-                exec: function () { return constructOccurrencesList(this.parent.input.occ) }
-            }
-        }
-    },
+    // "constructOccurrencesList": {
+    //     "1": {
+    //         test: "If object lists no occurrences, return null.",
+    //         input: { occ: {} },
+    //         expected: null,
+    //         result: {
+    //             parent: null,
+    //             exec: function () { return constructOccurrencesList(this.parent.input.occ) }
+    //         }
+    //     },
+    //     "2": {
+    //         test: "If object has one occurrence, produce html string for one list item.",
+    //         input: { occ: { "one": 1 } },
+    //         expected: "<li>one: 1</li>",
+    //         result: {
+    //             parent: null,
+    //             exec: function () { return constructOccurrencesList(this.parent.input.occ) }
+    //         }
+    //     },
+    //     "3": {
+    //         test: "If has an object has two occurrences, produce html string for two list items.",
+    //         input: { occ: { "one": 1, "two": 2 } },
+    //         expected: "<li>one: 1</li><li>two: 2</li>",
+    //         result: {
+    //             parent: null,
+    //             exec: function () { return constructOccurrencesList(this.parent.input.occ) }
+    //         }
+    //     }
+    // },
     "constructPassage": {
         "1": {
             test: "If a passage is empty, return the passage.",

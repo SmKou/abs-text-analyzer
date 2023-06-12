@@ -252,7 +252,6 @@ textarea {
 .optional {
   display: none;
   margin-top: 1.2rem;
-  grid-column: span 4;
 }
 #analyzer:checked ~ .optional {
   display: block;

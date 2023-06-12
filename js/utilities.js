@@ -20,7 +20,6 @@ function filterPassage(filter, text) {
     if (!filter && !filter.length)
         return text;
     const filterStr = filter.match(/\w+/gi);
-    console.log(filterStr);
     const regex = (filterStr.length > 1)? new RegExp(filterStr.join('|'), "gi"): new RegExp(filterStr[0], "gi");
     return text
         .replace(regex, '')
@@ -29,12 +28,33 @@ function filterPassage(filter, text) {
 }
 
 /**
+ * Create a string for inner html of passage
+ * Include strong elements around matching word
+ * @param {String} bold
+ * @param {String} text 
+ * @returns {String} 
+ */
+function constructPassage(bold, text) {
+    if (isEmpty(text))
+        return text;
+    if (!bold || isEmpty(bold))
+        return createParagraph(text);
+    const nonBold = text.split(bold).join('<strong>' + bold + '</strong>');
+    const paragraphs = nonBold.split(/\n+/).map(p => createParagraph(p));
+    return paragraphs;
+}
+
+function createParagraph(text) {
+    return '<p>' + text + '</p>';
+}
+
+/**
  * Create a string for inner html of list
  * List occurrences of each word in a passage
  * @param {Object} occurrences
  * @returns {String}
  */
-function constructOccurrencesList(occurrences) {
+function constructList(occurrences) {
     if (!occurrences || Object.keys(occurrences).length === 0)
         return null;
     let list = '';
@@ -45,17 +65,19 @@ function constructOccurrencesList(occurrences) {
 }
 
 /**
- * Create a new string for inner html of passage element
- * Include strong elements around matching word
- * @param {String} bold
+ * Create a string for inner html of stats
  * @param {String} text 
- * @returns {String} 
+ * @returns 
  */
-function constructPassage(bold, text) {
-    if (isEmpty(text))
-        return text;
-    if (!bold || isEmpty(bold))
-        return '<p>' + text + '</p>';
-    const nonBold = text.split(bold);
-    return '<p>' + nonBold.join('<strong>' + bold + '</strong>') + '</p>';
+function constructData(text) {
+    const data = {
+        sentence: countSentences(text),
+        word: countWords(text),
+        character: countCharacters(text)
+    }
+    let stats = '';
+    for (const [key, val] of Object.entries(data)) {
+        stats += `<p>Total ${key}s: ${val}</p>`
+    }
+    return stats;
 }
