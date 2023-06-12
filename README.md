@@ -56,8 +56,7 @@ Demo: [Github Pages](https://smkou.github.io/abs-text-analyzer/)
 
 ## Known Bugs
 
-- translateToPigLatin adds elements and places out of order
-
+- Use of inner html inefficient
 
 Please report any issues in viewing the site.
 

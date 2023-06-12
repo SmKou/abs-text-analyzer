@@ -1,51 +1,17 @@
-/**
- * Load variables for application
- * Add event listener to form element
- * 
- * Submit
- * - check user data
- * - get user selected component
- * - send data to component
- * - display component with results
- */
-function loadApplication() {
-    const textData = {
-        passage: {
-            origin: "",
-            clean: "",
-            processed: ""
-        },
-        count: {
-            character: 0,
-            word: 0,
-            selectword: 0,
-            sentence: 0
-        },
-        filter: [],
-        occurrences: {},
-        bold: []
-    };
-    const form = document.querySelector('form');
-    const display = {
-        "total": {
-            "sentence": () => textData.count.sentence,
-            "word": () => textData.count.word,
-            "character": () => textData.count.character,
-            "occurrences": () => textData.occurrences
-        },
-        "search": {
-            "word": () => textData.count.selectword,
-            "bold": () => textData.count.bold
-        },
-        "passage": () => (!isEmpty(passage.processed)) ?
-            textData.processed :
-            textData.origin
-    }
+const form = document.querySelector('form');
+const footer = document.querySelector('footer');
 
-    const handleFormSubmission = () => {
-    }
+const handleFormSubmission = (e) => {
+    e.preventDefault();
+    data = new FormData(form);
+    footer.classList.remove('hidden');
 
-    form.addEventListener('submit', handleFormSubmission);
+    const text = filterPassage()
 }
 
-window.onload = loadApplication;
+form.addEventListener('submit', handleFormSubmission);
+form.addEventListener('reset', () => {
+    form.reset();
+    passage.classList.add('hidden');
+    analysis.classList.add('hidden');
+})

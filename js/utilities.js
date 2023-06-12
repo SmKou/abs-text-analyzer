@@ -4,21 +4,28 @@
  * @returns {Boolean} true = empty string
  */
 function isEmpty(str) {
+    if (!str)
+        return true;
     return str.trim().length === 0;
 }
 
 /**
  * Create a new string from text
  * Remove instances of filter word
- * @param {String[]} filter 
+ * @param {String} filter 
  * @param {String} text
  * @returns {String} text without profanities
  */
 function filterPassage(filter, text) {
-    const regex = new RegExp(filter.join('|'), "gi");
+    if (!filter && !filter.length)
+        return text;
+    const filterStr = filter.match(/\w+/gi);
+    console.log(filterStr);
+    const regex = (filterStr.length > 1)? new RegExp(filterStr.join('|'), "gi"): new RegExp(filterStr[0], "gi");
     return text
         .replace(regex, '')
-        .replace(/[ ]{2,}/g, ' ');
+        .replace(/[ ]{2,}/g, ' ')
+        .trim();
 }
 
 /**
@@ -47,7 +54,7 @@ function constructOccurrencesList(occurrences) {
 function constructPassage(bold, text) {
     if (isEmpty(text))
         return text;
-    if (isEmpty(bold))
+    if (!bold || isEmpty(bold))
         return '<p>' + text + '</p>';
     const nonBold = text.split(bold);
     return '<p>' + nonBold.join('<strong>' + bold + '</strong>') + '</p>';

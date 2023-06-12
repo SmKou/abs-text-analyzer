@@ -23,7 +23,7 @@ const tests = {
     "filterPassage": {
         "1": {
             test: "If passage is empty, return the passage.",
-            input: { filter: [""], passage: "" },
+            input: { filter: "", passage: "" },
             expected: "",
             result: {
                 parent: null,
@@ -32,7 +32,7 @@ const tests = {
         },
         "2": {
             test: "If filter is empty, return the passage.",
-            input: { filter: [""], passage: "one" },
+            input: { filter: "", passage: "one" },
             expected: "one",
             result: {
                 parent: null,
@@ -41,7 +41,7 @@ const tests = {
         },
         "3": {
             test: "If filter is one word and passage does not contain an instance, return the passage.",
-            input: { filter: ["one"], passage: "two" },
+            input: { filter: "one", passage: "two" },
             expected: "two",
             result: {
                 parent: null,
@@ -50,7 +50,7 @@ const tests = {
         },
         "4": {
             test: "If filter is one word and passage contains an instance, return the passage with the instance removed.",
-            input: { filter: ["one"], passage: "one" },
+            input: { filter: "one", passage: "one" },
             expected: "",
             result: {
                 parent: null,
@@ -59,7 +59,7 @@ const tests = {
         },
         "5": {
             test: "If filter is more than one word and passage contains instances of any given word, return the passage with all instances removed.",
-            input: { filter: ["one", "two"], passage: "three one three one two three" },
+            input: { filter: "one, two", passage: "three one three one two three" },
             expected: "three three three",
             result: {
                 parent: null,
@@ -564,7 +564,9 @@ function formatReturn(data) {
             dataStr = (data) ? data : '\"\"';
             break;
         case 'object':
-            if (Array.isArray(data))
+            if (data === null)
+                dataStr = 'null';
+            else if (Array.isArray(data))
                 dataStr = (data.length) ? data.toString() : 'undefined';
             else
                 dataStr = (Object.keys(data).length) ? JSON.stringify(data) : 'undefined'
@@ -573,7 +575,7 @@ function formatReturn(data) {
             dataStr = (data) ? data.toString() : '0';
             break;
         default:
-            dataStr = data + '';
+            dataStr = 'undefined';
     }
     return dataStr;
 }
