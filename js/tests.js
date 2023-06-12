@@ -449,7 +449,7 @@ const tests = {
         "2": {
             test: "If a passage has two words, one starting with a consonant and one with a vowel, the one starting with a consonant moves the consonant to the end and adds ay, and the other adds way to the end.",
             input: { passage: "one two" },
-            expected: "oneway wotay",
+            expected: "oneway otway",
             result: {
                 parent: null,
                 exec: function () { return translateToPigLatin(this.parent.input.passage) }
@@ -458,7 +458,7 @@ const tests = {
         "3": {
             test: "If a passage has two words and starts with a non-alphanumeric character, return the passage in the correct order in pig latin.",
             input: { passage: "?one two" },
-            expected: "?oneway wotay",
+            expected: "?oneway otway",
             result: {
                 parent: null,
                 exec: function () { return translateToPigLatin(this.parent.input.passage) }
@@ -467,7 +467,7 @@ const tests = {
         "4": {
             test: "If a passage has two words and starts and ends with non-alphanumeric characters, return the passage in the correct order in pig latin.",
             input: { passage: "?one two." },
-            expected: "?oneway wotay.",
+            expected: "?oneway otway.",
             result: {
                 parent: null,
                 exec: function () { return translateToPigLatin(this.parent.input.passage) }

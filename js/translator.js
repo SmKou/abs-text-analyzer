@@ -8,8 +8,8 @@ function translateToPigLatin(text) {
     if (isEmpty(text))
         return text;
     const trimmed = text.trim();
-    let words = trimmed.match(/\w/gi);
-    let nonWords = trimmed.match(/\W/gi);
+    let words = trimmed.match(/\w+/gi);
+    let nonWords = trimmed.match(/\W+/gi);
     if (!nonWords)
         return constructPigLatinWord(words[0]);
     else {

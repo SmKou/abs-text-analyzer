@@ -73,9 +73,12 @@ translateToPigLatin         T: 2-4
     result: ?oway nayewaytaywayoway
 4.  expected: ?oneway wotay.
     result: ?oway nay.ewaytaywayoway
+Status: FIXED - 6.11
+Error: Match regex missing +
 
 **Notes**
-- Failed tests for countOccurrences may be testing error
+- Failed tests for countOccurrences may be testing error CONFIRMED: 6.11
 - Mod test execution
   Show true or false for success and failure
   If false, show expected value and result
+  NOT ADDED: 6.11
